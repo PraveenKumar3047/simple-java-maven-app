@@ -25,3 +25,15 @@ stages:
              effectivePomSkip: false
              sonarQubeRunAnalysis: true
              sqMavenPluginVersionChoice: 'latest'
+            
+  - stage: 'download artifact'
+    jobs:
+      - job: 'artifact'
+        steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+             buildType: 'current'
+             downloadType: 'single'
+             artifactName: 'Jai artifact'
+             downloadPath: '$(System.ArtifactsDirectory)'
+      
