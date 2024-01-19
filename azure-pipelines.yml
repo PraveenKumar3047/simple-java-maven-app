@@ -26,7 +26,7 @@ stages:
              sonarQubeRunAnalysis: true
              sqMavenPluginVersionChoice: 'latest'
             
-  - stage: 'download-artifact'
+  - stage: 'download_artifact'
     jobs:
       - job: 'artifact'
         steps:
