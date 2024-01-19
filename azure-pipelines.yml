@@ -14,28 +14,14 @@ stages:
     jobs:
       - job: 'Build'
         steps:
-          - 
-- task: Maven@4
+          - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testRunTitle: 'Test run for jai'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-
-  - stage: 'Deploy'
-    jobs:
-      - job: 'Deploy'
-        steps:
-          - 
-- task: DownloadBuildArtifacts@1
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'Build'
-    downloadPath: '$(System.ArtifactsDirectory)'
